@@ -1,5 +1,5 @@
 import Button from "../button/Button";
-import tutorImg from "../../assets/Ellipse 41.png";
+import tutorImg from "../../assets/become tutor.jpeg";
 const BecomeTutor = () => {
   return (
     <div className="relative grid items-center grid-cols-2 gap-16 py-4">
@@ -18,7 +18,10 @@ const BecomeTutor = () => {
         </div>
       </div>
       <div>
-        <img src={tutorImg} className="transform scale-x-[-1] relative" />
+        <img
+          src={tutorImg}
+          className="h-[550px] transform scale-x-[-1] object-cover rounded-r-full"
+        />
       </div>
     </div>
   );
