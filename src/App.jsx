@@ -38,7 +38,6 @@ const App = () => {
     <Router>
       <section className="flex flex-col justify-between min-h-screen font-poppins">
         <ScrollToTopOnRouteChange />
-        <Navbar />
         <Routes>
           <Route index element={<Home />} />
 
@@ -74,7 +73,6 @@ const App = () => {
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <Footer />
       </section>
     </Router>
   );
