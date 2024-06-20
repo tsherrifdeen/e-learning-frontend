@@ -16,19 +16,10 @@ const imageMap = {
   // Add mappings for other blog images
 };
 
-const BlogCard = () => {
+const BlogCard = ({ children }) => {
   return (
     <div className="my-9">
-      <div className="flex justify-between">
-        <div>
-          <h3 className="text-xl font-bold">
-            Popular<span className="text-[#F0A305] px-2">Articles</span>
-          </h3>
-        </div>
-        <div className="flex">
-          <div></div>
-        </div>
-      </div>
+      {children}
 
       <div className="w-full mx-auto">
         <div className="grid mt-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-14">

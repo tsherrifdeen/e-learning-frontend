@@ -37,7 +37,7 @@ const App = () => {
   return (
     <Router>
       <section className="flex flex-col justify-between min-h-screen font-poppins">
-        <ScrollToTopOnRouteChange />
+        {/* <ScrollToTopOnRouteChange /> */}
         <Routes>
           <Route index element={<Home />} />
 
