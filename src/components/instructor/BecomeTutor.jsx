@@ -14,7 +14,7 @@ const BecomeTutor = () => {
           learning experience.
         </div>
         <div className="mt-16">
-          <Button value="Start Your Teaching Journey Now" />
+          <Button value="Start Your Teaching Journey Now" to="/tutor" />
         </div>
       </div>
       <div>

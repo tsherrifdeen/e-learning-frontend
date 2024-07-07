@@ -22,6 +22,7 @@ import DevelopmentDesc from "./pages/courses/development/DevelopmentDesc";
 import DesignDesc from "./pages/courses/design/DesignDesc";
 import MarketingDesc from "./pages/courses/marketing/MarketingDesc";
 import BusinessDesc from "./pages/courses/business/BusinessDesc";
+import Tutor from "./pages/home/Tutor";
 
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();
@@ -37,6 +38,7 @@ const App = () => {
   return (
     <Router>
       <section className="flex flex-col justify-between min-h-screen font-poppins">
+        <Navbar />
         {/* <ScrollToTopOnRouteChange /> */}
         <Routes>
           <Route index element={<Home />} />
@@ -72,7 +74,9 @@ const App = () => {
 
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/tutor" element={<Tutor />} />
         </Routes>
+        <Footer />
       </section>
     </Router>
   );
