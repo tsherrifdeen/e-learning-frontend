@@ -1,14 +1,17 @@
+// src/layouts/AdminLayout.jsx
 import { Outlet } from "react-router-dom";
-import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
-const RootLayout = () => {
+import Footer from "../components/footer/Footer";
+const User = () => {
   return (
-    <section className="flex flex-col justify-between w-full min-h-screen">
+    <section className="flex flex-col justify-between min-h-screen font-poppins">
       <Navbar />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </section>
   );
 };
 
-export default RootLayout;
+export default User;
