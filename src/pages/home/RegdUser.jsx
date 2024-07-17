@@ -1,5 +1,6 @@
+import NavBar from "../../components/navbar/Navbar";
 const RegdUser = () => {
-  return <div>RegdUser</div>;
+  return <NavBar />;
 };
 
 export default RegdUser;

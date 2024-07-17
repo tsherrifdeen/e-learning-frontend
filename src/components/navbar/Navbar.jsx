@@ -51,14 +51,14 @@ const links = [
   {
     id: 4,
     title: "Become a tutor",
-    url: "/contact",
+    url: "/tutor",
   },
 ];
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [openSubLinks, setOpenSubLinks] = useState(false);
-  const cartCount =    useCartStore(state => state.cart.length)
+  const cartCount = useCartStore((state) => state.cart.length);
   const handleNav = () => {
     setNav(!nav);
   };
@@ -81,7 +81,7 @@ const Navbar = () => {
             <Link
               key={subLink.id}
               to={subLink.url}
-              className="font-semibold flex justify-between items-center gap-4 text-darkslateblue"
+              className="flex items-center justify-between gap-4 font-semibold text-darkslateblue"
               onClick={() => {
                 handleNav();
                 handleDropDown();
@@ -98,7 +98,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="py-4 fixed top-0 left-0 z-50 w-full bg-white shadow-md md:shadow-none md:relative h-20">
+    <nav className="fixed top-0 left-0 z-50 w-full h-20 py-4 bg-white shadow-md md:shadow-none md:relative">
       <div className="hidden md:flex w-[90%] mx-auto  justify-between items-center">
         <Link to="/">
           <img src={logo} alt="logo" />
@@ -110,7 +110,7 @@ const Navbar = () => {
               {link.id === 1 ? (
                 <>
                   <span
-                    className="font-semibold text-lightslateblue cursor-pointer group"
+                    className="font-semibold cursor-pointer text-lightslateblue group"
                     onClick={handleDropDown}
                   >
                     {link.title}
@@ -129,7 +129,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="flex gap-8 items-center">
+        <div className="flex items-center gap-8">
           <Link to="/search">
             <GoSearch size={25} />
           </Link>
@@ -154,7 +154,7 @@ const Navbar = () => {
         <Link to="/">
           <img src={logo} alt="logo" />
         </Link>
-        <div className="flex gap-6 items-center">
+        <div className="flex items-center gap-6">
           <Link to="/search">
             <GoSearch size={30} />
           </Link>
@@ -179,13 +179,13 @@ const Navbar = () => {
         <Link to="/" onClick={handleNav}>
           <img src={logo} alt="logo" />
         </Link>
-        <div className="flex flex-col gap-10  pt-12 ">
+        <div className="flex flex-col gap-10 pt-12 ">
           {links.map((link) => (
             <div key={link.id} className="relative">
               {link.id === 1 ? (
                 <div className="relative">
                   <span
-                    className="font-semibold text-lightslateblue cursor-pointer"
+                    className="font-semibold cursor-pointer text-lightslateblue"
                     onClick={handleDropDown}
                   >
                     {link.title}
@@ -204,7 +204,7 @@ const Navbar = () => {
             </div>
           ))}
         </div>
-        <div className="flex gap-8  flex-col mt-6">
+        <div className="flex flex-col gap-8 mt-6">
           <Link
             to="/auth/login"
             className="border p-2 border-[#B1B5BB] rounded-xl px-6 text-center w-[120px] text-darkblue font-semibold"
