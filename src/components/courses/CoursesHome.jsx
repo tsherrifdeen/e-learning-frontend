@@ -1,21 +1,17 @@
 import { useState } from "react";
 import { allCourses } from "../../data/courses/home";
-import Button from "../button/Button";
+import Button from "../common/button/Button";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useCartStore } from "../../store";
 
 const CoursesHome = () => {
- 
   const [courses, setCourses] = useState(allCourses);
-  const addToCart = useCartStore((state) => state.addToCart)
- 
+  const addToCart = useCartStore((state) => state.addToCart);
 
-  
-
-   const handleAddToCart = (course) => {
-     addToCart(course)
+  const handleAddToCart = (course) => {
+    addToCart(course);
     toast.success("Item added to cart", {
       position: "top-right",
       autoClose: 5000,
@@ -26,23 +22,22 @@ const CoursesHome = () => {
       progress: undefined,
       theme: "light",
     });
-    
-   };
+  };
 
-   const [selectedCategory, setSelectedCategory] = useState("All"); // Initialize with 'All'
+  const [selectedCategory, setSelectedCategory] = useState("All"); // Initialize with 'All'
 
-   const filterCategory = (category) => {
-     setSelectedCategory(category);
-     if (category === "All") {
-       setCourses(allCourses);
-     } else {
-       setCourses(allCourses.filter((course) => course.category === category));
-     }
-   }
+  const filterCategory = (category) => {
+    setSelectedCategory(category);
+    if (category === "All") {
+      setCourses(allCourses);
+    } else {
+      setCourses(allCourses.filter((course) => course.category === category));
+    }
+  };
   return (
     <section className="mb-20">
-      <div className="flex flex-col md:flex-row  gap-10 justify-between">
-        <h1 className="font-bold text-3xl md:text-4xl text-midnightBlue">
+      <div className="flex flex-col justify-between gap-10 md:flex-row">
+        <h1 className="text-3xl font-bold md:text-4xl text-midnightBlue">
           Popular <span className="text-yellow">Courses</span>
         </h1>
         <div className="bg-[#E6EFFE] overflow-x-scroll md:overflow-x-hidden flex  items-center gap-4 py-3 px-2 rounded-2xl">
@@ -82,21 +77,21 @@ const CoursesHome = () => {
         </div>
       </div>
 
-      <main className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 mt-12">
+      <main className="grid gap-8 mt-12 sm:grid-cols-2 md:grid-cols-3">
         {courses.map((course) => (
           <div
             key={course.id}
-            className="border rounded-lg shadow-lg  duration-300"
+            className="duration-300 border rounded-lg shadow-lg"
           >
             <img
               src={course.image}
               alt={course.title}
               className="w-full h-[200px] object-cover rounded-t-lg "
             />
-            <div className="py-3 flex flex-col  gap-3 w-full px-4 ">
-              <div className="flex gap-4 items-center">
+            <div className="flex flex-col w-full gap-3 px-4 py-3 ">
+              <div className="flex items-center gap-4">
                 <p className="text-blue">{course.category}</p>
-                <span className="bg-brown text-white rounded-2xl py-1 px-2 text-sm">
+                <span className="px-2 py-1 text-sm text-white bg-brown rounded-2xl">
                   {course.badge}
                 </span>
               </div>
@@ -111,7 +106,7 @@ const CoursesHome = () => {
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <div className="flex flex-wrap gap-2 items-center">
+                <div className="flex flex-wrap items-center gap-2">
                   <h4 className="text-lg font-bold text-darkblue">
                     {course.price.toLocaleString("en-NG", {
                       style: "currency",
@@ -121,7 +116,7 @@ const CoursesHome = () => {
                     })}
                   </h4>
                   {course.initialPrice && (
-                    <span className="text-lightslateblue line-through text-sm ">
+                    <span className="text-sm line-through text-lightslateblue ">
                       {course.initialPrice.toLocaleString("en-NG", {
                         style: "currency",
                         currency: "NGN",
@@ -135,7 +130,7 @@ const CoursesHome = () => {
                   )}
                 </div>
                 <button
-                  className="bg-none outline-none border-none text-blue font-semibold"
+                  className="font-semibold border-none outline-none bg-none text-blue"
                   onClick={() => handleAddToCart(course)}
                 >
                   Add to Cart

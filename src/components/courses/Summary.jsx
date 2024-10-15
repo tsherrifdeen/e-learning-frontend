@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import Button from "../button/Button";
+import Button from "../common/button/Button";
 import { FiBarChart, FiClock, FiRefreshCcw } from "react-icons/fi";
 import {
   PiGraduationCapLight,
@@ -79,7 +79,7 @@ const Summary = ({ item }) => {
                 maximumFractionDigits: 0,
               })}
             </h3>
-            <p className=" line-through">
+            <p className="line-through ">
               {item.initialPrice.toLocaleString("en-NG", {
                 style: "currency",
                 currency: "NGN",
@@ -109,7 +109,7 @@ const Summary = ({ item }) => {
       </div>
       <div className="border border-[#E6E7E9] rounded-lg py-6">
         <div className="flex flex-col ">
-          <h2 className="font-bold text-darkslateblue text-xl px-8">
+          <h2 className="px-8 text-xl font-bold text-darkslateblue">
             Material Includes
           </h2>
           <div className="flex flex-col gap-6 p-8">
@@ -123,7 +123,7 @@ const Summary = ({ item }) => {
             ))}
           </div>
           <div className="flex flex-col ">
-            <h2 className="font-bold text-darkslateblue text-xl px-8">
+            <h2 className="px-8 text-xl font-bold text-darkslateblue">
               Requirements
             </h2>
           </div>

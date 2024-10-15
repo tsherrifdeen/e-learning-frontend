@@ -1,13 +1,13 @@
 import About from "../../components/home/About";
 import CoursesHome from "../../components/courses/CoursesHome";
 import NewCourses from "../../components/courses/NewCourses";
-import HomeHeader from "../../components/header/HomeHeader";
+import HomeHeader from "../../components/common/header/HomeHeader";
 import Testimonials from "../../components/home/Testimonials";
 import BecomeTutor from "../../components/instructor/BecomeTutor";
 import MeetInstructor from "../../components/instructor/MeetInstructor";
 import BlogCard from "../../components/Blog/Blog-card";
 import Partners from "../../components/home/Partners";
-import Subscribe from "../../components/Subscribe/Subscribe";
+import Subscribe from "../../components/common/Subscribe/Subscribe";
 const Home = () => {
   return (
     <main className="mt-28 md:mt-6 w-[90%] mx-auto">

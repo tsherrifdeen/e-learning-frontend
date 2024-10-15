@@ -1,22 +1,22 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import RootLayout from "./layouts/RootLayout";
 import NoLayout from "./layouts/NoLayout";
-import Home from "./pages/home/Home";
-import Blog from "./pages/blog/Blog";
-import Cart from "./pages/cart/Cart";
-import Checkout from "./pages/checkout/Checkout";
+import Home from "./pages/home";
+import Blog from "./pages/blog";
+import Cart from "./pages/cart";
+import Checkout from "./pages/checkout";
 import Search from "./pages/search/Search";
 import Template from "./pages/template/Template";
-import Login from "./pages/auth/login/Login";
-import SignUp from "./pages/auth/signup/SignUp";
-import Contact from "./pages/contact/Contact";
-import NotFound from "./pages/404/NotFound";
+import Login from "./pages/auth/login";
+import SignUp from "./pages/auth/signup";
+import Contact from "./pages/contact";
+import NotFound from "./pages/404";
 import Development from "./pages/courses/development/Development";
 import Design from "./pages/courses/design/Design";
 import Marketing from "./pages/courses/marketing/Marketing";
 import Business from "./pages/courses/business/Business";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import CourseTemDescription from "./components/Template Page/single";
 import DevelopmentDesc from "./pages/courses/development/DevelopmentDesc";
 import DesignDesc from "./pages/courses/design/DesignDesc";
@@ -24,15 +24,15 @@ import MarketingDesc from "./pages/courses/marketing/MarketingDesc";
 import BusinessDesc from "./pages/courses/business/BusinessDesc";
 import Tutor from "./pages/tutor/Tutor";
 
-function ScrollToTopOnRouteChange() {
-  const { pathname } = useLocation();
+// function ScrollToTopOnRouteChange() {
+//   const { pathname } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+//   useEffect(() => {
+//     window.scrollTo(0, 0);
+//   }, [pathname]);
 
-  return null;
-}
+//   return null;
+// }
 
 const App = () => {
   return (
@@ -70,6 +70,13 @@ const App = () => {
           <Route index element={<Template />} />
           <Route path=":courseId" element={<CourseTemDescription />} />
         </Route>
+        {/*tutor*/}
+        {/* <Route element={}>
+          <Route> 
+
+          </Route>
+        </Route>  */}
+
         {/* Not found route */}
         <Route path="*" element={<NotFound />} />
       </Routes>

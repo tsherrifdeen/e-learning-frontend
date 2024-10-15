@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Button from "../button/Button";
-import logo from "../../assets/Logo.png";
+import logo from "../../../assets/Logo.png";
 import { Link } from "react-router-dom";
 import { BsCart3 } from "react-icons/bs";
 import { GoSearch } from "react-icons/go";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { useCartStore } from "../../store";
+import { useCartStore } from "../../../store";
 
 const links = [
   {
