@@ -1,5 +1,5 @@
 import { useState } from "react";
-import amico from "../../assets/amico.png";
+import amico from "../../../assets/amico.png";
 import Button from "../button/Button";
 const Subscribe = () => {
   const [email, setEmail] = useState("");

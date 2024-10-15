@@ -18,7 +18,7 @@ const HeroRegistered = () => {
               <div className="mt-12 text-base leading-7 text-gray-700 max-md:mt-10 max-md:max-w-full">
                 Save 25% on select courses! Enroll now and seize this
                 limited-time offer to enhance your skills and knowledge at a
-                discounted price. Don't wait, start learning today!
+                discounted price. Don 't wait, start learning today!
               </div>
             </div>
           </div>

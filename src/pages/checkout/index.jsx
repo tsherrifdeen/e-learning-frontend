@@ -1,11 +1,9 @@
-
-import payment from "../../assets/payment.png"
-import Button from "../../components/button/Button";
+import payment from "../../assets/payment.png";
+import Button from "../../components/common/button/Button";
 import { useCartStore } from "../../store";
 
-
 const Checkout = () => {
-  const cartItems =  useCartStore(state => state.cart)
+  const cartItems = useCartStore((state) => state.cart);
   const initialPrice = cartItems.reduce((total, item) => {
     const price = item.initialPrice ? item.initialPrice : item.price;
     return total + price;
@@ -23,10 +21,10 @@ const Checkout = () => {
 
   return (
     <section className="mt-28 md:mt-6 w-[90%] md:w-[80%] mx-auto mb-20">
-      <h1 className="font-bold text-3xl text-darkblue">Checkout</h1>
-      <div className="flex flex-col md:flex-row justify-between  gap-8 md:gap-48 w-full">
-        <main className="flex-1  flex flex-col gap-3">
-          <h3 className="text-xl text-lightslateblue font-semibold">
+      <h1 className="text-3xl font-bold text-darkblue">Checkout</h1>
+      <div className="flex flex-col justify-between w-full gap-8 md:flex-row md:gap-48">
+        <main className="flex flex-col flex-1 gap-3">
+          <h3 className="text-xl font-semibold text-lightslateblue">
             Personal Details
           </h3>
           <form action="" className="flex flex-col gap-4">
@@ -75,7 +73,7 @@ const Checkout = () => {
                 <option value="Ghana">Ghana</option>
               </select>
             </div>
-            <div className="input flex justify-between items-center">
+            <div className="flex items-center justify-between input">
               <span className="flex items-center">
                 <input type="radio" name="" id="" className="input" checked />
                 <span>💳card</span>
@@ -134,8 +132,8 @@ const Checkout = () => {
             </div>
           </form>
         </main>
-        <aside className="flex-1  flex flex-col gap-3">
-          <h3 className="text-xl text-lightslateblue font-semibold">
+        <aside className="flex flex-col flex-1 gap-3">
+          <h3 className="text-xl font-semibold text-lightslateblue">
             Course Order Details
           </h3>
 
@@ -143,7 +141,7 @@ const Checkout = () => {
             {cartItems.map((item) => (
               <div
                 key={item.id}
-                className="relative md:flex items-center gap-4"
+                className="relative items-center gap-4 md:flex"
               >
                 <div className="flex flex-col md:flex-row bg-white rounded-lg md:rounded-xl shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px] h-full">
                   <img
@@ -166,7 +164,7 @@ const Checkout = () => {
                         })}
                       </h4>
                       {item.initialPrice && (
-                        <p className="text-lightslateblue line-through text-sm ">
+                        <p className="text-sm line-through text-lightslateblue ">
                           {item.initialPrice.toLocaleString("en-NG", {
                             style: "currency",
                             currency: "NGN",
@@ -183,7 +181,7 @@ const Checkout = () => {
           </div>
           <div className="border border-[#E6E7E9] rounded-lg p-4 flex flex-col gap-3 text-[#8B919A] mt-8">
             <h4 className="text-center">Summary</h4>
-            <p className="flex justify-between items-center">
+            <p className="flex items-center justify-between">
               Initial Price:
               <span>
                 {initialPrice.toLocaleString("en-NG", {
@@ -195,7 +193,7 @@ const Checkout = () => {
               </span>
             </p>
 
-            <p className="flex justify-between items-center">
+            <p className="flex items-center justify-between">
               Discount:
               <span>
                 {newPrice.toLocaleString("en-NG", {
@@ -206,9 +204,9 @@ const Checkout = () => {
                 })}
               </span>
             </p>
-            <p className="flex justify-between items-center">
+            <p className="flex items-center justify-between">
               Total Price:
-              <span className="text-black font-semibold">
+              <span className="font-semibold text-black">
                 {totalPrice.toLocaleString("en-NG", {
                   style: "currency",
                   currency: "NGN",

@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { allCourses } from "../../data/templates/alltem";
-import Button from "../button/Button";
+import Button from "../common/button/Button";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../features/cart";
+import { addToCart } from "../../utils/cart";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 const AllTemplate = () => {
-  
- 
   const dispatch = useDispatch();
   const [courses, setCourses] = useState(allCourses);
 
@@ -24,11 +22,11 @@ const AllTemplate = () => {
   };
   return (
     <section className="mb-20">
-      <div className="flex flex-col md:flex-row  gap-10 justify-between">
-        <h1 className="font-bold text-3xl md:text-4xl text-midnightBlue">
+      <div className="flex flex-col justify-between gap-10 md:flex-row">
+        <h1 className="text-3xl font-bold md:text-4xl text-midnightBlue">
           All <span className="text-yellow">Templates</span>
         </h1>
-        <div className=" flex flex-wrap items-center gap-4 py-3 px-2 rounded-2xl">
+        <div className="flex flex-wrap items-center gap-4 px-2 py-3 rounded-2xl">
           <Button value="All" url="" onClick={() => setCourses(allCourses)} />
           <button
             onClick={() => filterCategory("Popular")}
@@ -57,23 +55,22 @@ const AllTemplate = () => {
         </div>
       </div>
 
-      <main className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 mt-12">
+      <main className="grid gap-8 mt-12 sm:grid-cols-2 md:grid-cols-3">
         {courses.map((course) => (
           <Link
             to={`/template/${course.id}`}
             key={course.id}
-
-            className="border rounded-lg shadow-lg  duration-300"
+            className="duration-300 border rounded-lg shadow-lg"
           >
             <img
               src={course.image}
               alt={course.title}
               className="w-full h-[200px] object-cover rounded-t-lg "
             />
-            <div className="py-3 flex flex-col  gap-3 w-full px-4 ">
-              <div className="flex gap-4 items-center justify-between">
+            <div className="flex flex-col w-full gap-3 px-4 py-3 ">
+              <div className="flex items-center justify-between gap-4">
                 <p className="text-blue">{course.category}</p>
-                <span className=" text-gray-400 rounded-2xl py-1 px-2 text-sm">
+                <span className="px-2 py-1 text-sm text-gray-400 rounded-2xl">
                   {course.badge}
                 </span>
               </div>
@@ -90,7 +87,7 @@ const AllTemplate = () => {
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <div className="flex flex-wrap gap-2 items-center">
+                <div className="flex flex-wrap items-center gap-2">
                   <h4 className="text-lg font-bold text-darkblue">
                     {course.price.toLocaleString("en-NG", {
                       style: "currency",
@@ -100,7 +97,7 @@ const AllTemplate = () => {
                     })}
                   </h4>
                   {course.initialPrice && (
-                    <span className="text-lightslateblue line-through text-sm ">
+                    <span className="text-sm line-through text-lightslateblue ">
                       {course.initialPrice.toLocaleString("en-NG", {
                         style: "currency",
                         currency: "NGN",
@@ -114,7 +111,7 @@ const AllTemplate = () => {
                   )}
                 </div>
                 <button
-                  className="bg-none outline-none border-none text-blue font-semibold"
+                  className="font-semibold border-none outline-none bg-none text-blue"
                   onClick={() => {
                     dispatch(addToCart(course));
                     toast.success("Item added to cart", {

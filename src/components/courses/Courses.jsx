@@ -1,48 +1,48 @@
 /* eslint-disable react/prop-types */
-import bgImg from "../../assets/course-bg.png"
-import Button from "../button/Button";
+import bgImg from "../../assets/course-bg.png";
+import Button from "../common/button/Button";
 import { useState } from "react";
 import { useCartStore } from "../../store";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 
-const Courses = ({ buttons, data,  category, type}) => {
-    const [courses, setCourses] = useState(data);
-const addToCart = useCartStore((state) => state.addToCart);
+const Courses = ({ buttons, data, category, type }) => {
+  const [courses, setCourses] = useState(data);
+  const addToCart = useCartStore((state) => state.addToCart);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [header, setHeader] = useState(category)
-     const handleAddToCart = (course) => {
-        addToCart(course);
-      toast.success("Item added to cart", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-     };
+  const [header, setHeader] = useState(category);
+  const handleAddToCart = (course) => {
+    addToCart(course);
+    toast.success("Item added to cart", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
   const handleHeaderChange = (e) => {
-    setHeader(e.target.innerText)
-  }
+    setHeader(e.target.innerText);
+  };
 
-    const filterCategory = (category) => {
-      setSelectedCategory(category);
-      if (category === "All") {
-        setCourses(data);
-      } else {
-        setCourses(data.filter((course) => course.badge === category));
-      }
-    };
+  const filterCategory = (category) => {
+    setSelectedCategory(category);
+    if (category === "All") {
+      setCourses(data);
+    } else {
+      setCourses(data.filter((course) => course.badge === category));
+    }
+  };
   return (
     <section>
       <img src={bgImg} alt="" />
-      <div className="my-6 flex flex-col gap-6">
+      <div className="flex flex-col gap-6 my-6">
         <h2 className="text-xl text-lightslateblue">In-Demand Skills</h2>
-        <div className="flex flex-wrap  gap-8 ">
+        <div className="flex flex-wrap gap-8 ">
           {buttons.map((button) => (
             <button
               key={button.id}
@@ -55,11 +55,11 @@ const addToCart = useCartStore((state) => state.addToCart);
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row md:items-center gap-10 justify-between">
-        <h1 className="font-bold text-2xl md:text-3xl text-darkblue">
+      <div className="flex flex-col justify-between gap-10 md:flex-row md:items-center">
+        <h1 className="text-2xl font-bold md:text-3xl text-darkblue">
           {header}
         </h1>
-        <div className=" flex  items-center gap-4 py-3 px-2 rounded-2xl font-semibold">
+        <div className="flex items-center gap-4 px-2 py-3 font-semibold rounded-2xl">
           <Button value="All" url="" onClick={() => setCourses(data)} />
           <button
             onClick={() => filterCategory("Popular")}
@@ -88,7 +88,7 @@ const addToCart = useCartStore((state) => state.addToCart);
         </div>
       </div>
 
-      <main className="grid sm:grid-cols-2 md:grid-cols-3 gap-14 mt-12">
+      <main className="grid mt-12 sm:grid-cols-2 md:grid-cols-3 gap-14">
         {courses.map((course) => (
           <div key={course.id} className="border rounded-lg shadow-lg ">
             <Link to={`/courses/${type}/${course.id}`}>
@@ -98,10 +98,10 @@ const addToCart = useCartStore((state) => state.addToCart);
                 className="w-full h-[200px] object-cover rounded-t-lg "
               />
             </Link>
-            <div className="py-3 flex flex-col  gap-3 w-full px-4 ">
-              <div className="flex gap-4 items-center">
+            <div className="flex flex-col w-full gap-3 px-4 py-3 ">
+              <div className="flex items-center gap-4">
                 <p className="text-blue">{course.category}</p>
-                <span className="bg-brown text-white rounded-2xl py-1 px-2 text-sm">
+                <span className="px-2 py-1 text-sm text-white bg-brown rounded-2xl">
                   {course.badge}
                 </span>
               </div>
@@ -117,7 +117,7 @@ const addToCart = useCartStore((state) => state.addToCart);
               </div>
 
               <div className="flex items-center justify-between">
-                <div className="flex flex-wrap gap-2 items-center">
+                <div className="flex flex-wrap items-center gap-2">
                   <h4 className="text-lg font-bold text-darkblue">
                     {course.price.toLocaleString("en-NG", {
                       style: "currency",
@@ -127,7 +127,7 @@ const addToCart = useCartStore((state) => state.addToCart);
                     })}
                   </h4>
                   {course.initialPrice && (
-                    <span className="text-lightslateblue line-through text-sm ">
+                    <span className="text-sm line-through text-lightslateblue ">
                       {course.initialPrice.toLocaleString("en-NG", {
                         style: "currency",
                         currency: "NGN",
@@ -141,7 +141,7 @@ const addToCart = useCartStore((state) => state.addToCart);
                   )}
                 </div>
                 <button
-                  className="bg-none outline-none border-none text-blue font-semibold"
+                  className="font-semibold border-none outline-none bg-none text-blue"
                   onClick={() => handleAddToCart(course)}
                 >
                   Add to Cart
@@ -154,6 +154,6 @@ const addToCart = useCartStore((state) => state.addToCart);
       <ToastContainer />
     </section>
   );
-}
+};
 
-export default Courses
+export default Courses;

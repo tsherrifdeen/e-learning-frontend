@@ -1,5 +1,5 @@
 import start from "../../../assets/StartJourney.svg";
-import Button from "../../../components/button/Button.jsx";
+import Button from "../../common/button/Button.jsx";
 const StartJourney = () => {
   return (
     <div className="flex gap-5 mt-32 mb-24 max-md:flex-col max-md:gap-0">
