@@ -23,6 +23,7 @@ import DesignDesc from "./pages/courses/design/DesignDesc";
 import MarketingDesc from "./pages/courses/marketing/MarketingDesc";
 import BusinessDesc from "./pages/courses/business/BusinessDesc";
 import Tutor from "./pages/tutor/Tutor";
+import Tutorsignup from './components/tutor/onboarding/Signup'
 
 // function ScrollToTopOnRouteChange() {
 //   const { pathname } = useLocation();
@@ -48,6 +49,7 @@ const App = () => {
           <Route path="search" element={<Search />} />
           <Route path="contact" element={<Contact />} />
           <Route path="tutor" element={<Tutor />} />
+         
         </Route>
         {/* Auth routes */}
         <Route path="/auth" element={<NoLayout />}>
@@ -79,6 +81,9 @@ const App = () => {
 
         {/* Not found route */}
         <Route path="*" element={<NotFound />} />
+
+
+        <Route path="tutorsign" element={<Tutorsignup />} />
       </Routes>
     </Router>
   );
