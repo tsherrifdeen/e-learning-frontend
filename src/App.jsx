@@ -24,6 +24,10 @@ import MarketingDesc from "./pages/courses/marketing/MarketingDesc";
 import BusinessDesc from "./pages/courses/business/BusinessDesc";
 import Tutor from "./pages/tutor/Tutor";
 import Tutorsignup from './components/tutor/onboarding/Signup'
+import TutorDashboard from './components/tutor/TutorDashboard/index'
+import Withdraw from "./components/tutor/TutorDashboard/withdraw/Withdraw"
+import WithdrawAmount from "./components/tutor/TutorDashboard/withdraw/WIthdrawalAmount"
+import WithdrawCode from "./components/tutor/TutorDashboard/withdraw/VerifyCode"
 
 // function ScrollToTopOnRouteChange() {
 //   const { pathname } = useLocation();
@@ -84,6 +88,14 @@ const App = () => {
 
 
         <Route path="tutorsign" element={<Tutorsignup />} />
+        <Route path="tutordashboard" element={<TutorDashboard />} />
+        <Route path="withdraws" element={<Withdraw />} />
+        <Route path="withdrawamount" element={<WithdrawAmount />} />
+        <Route path="withdrawcode" element={<WithdrawCode />} />
+
+       
+       
+           
       </Routes>
     </Router>
   );
