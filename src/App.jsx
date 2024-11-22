@@ -30,6 +30,7 @@ import WithdrawAmount from "./components/tutor/TutorDashboard/withdraw/WIthdrawa
 import WithdrawCode from "./components/tutor/TutorDashboard/withdraw/VerifyCode"
 import TutorAccount from "./components/tutor/Account/Account"
 import MyCourses from "./components/tutor/My courses/mycourses"
+import CourseView from "./components/tutor/My courses/CourseView"
 
 // function ScrollToTopOnRouteChange() {
 //   const { pathname } = useLocation();
@@ -96,6 +97,7 @@ const App = () => {
         <Route path="withdrawcode" element={<WithdrawCode />} />
         <Route path="tutoraccount" element={<TutorAccount/>} />
         <Route path="mycourses" element={<MyCourses/>} />
+        <Route path="courseview" element={<CourseView/>} />
 
        
        
