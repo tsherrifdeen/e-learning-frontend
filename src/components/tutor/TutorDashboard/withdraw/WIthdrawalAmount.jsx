@@ -55,7 +55,7 @@ const AccountDetailsForm = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-400 focus:outline-none"
+            className="w-full py-2 bg-blue text-white font-medium rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-400 focus:outline-none"
           >
             Proceed
           </button>

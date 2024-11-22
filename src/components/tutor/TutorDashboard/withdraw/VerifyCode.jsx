@@ -25,7 +25,7 @@ const VerifyAccount = () => {
               key={index}
               type="text"
               maxLength={1}
-              className="w-12 h-12 border rounded-lg text-center text-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              className="w-12 h-12 border rounded-lg text-center shadow-sm text-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
             />
           ))}
         </div>
@@ -41,7 +41,7 @@ const VerifyAccount = () => {
         {/* Confirm Button */}
         <button
           type="submit"
-          className="w-full py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-400 focus:outline-none"
+          className="w-full py-2 bg-blue text-white font-medium rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-400 focus:outline-none"
         >
           Confirm
         </button>
