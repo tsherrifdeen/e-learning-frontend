@@ -1,36 +1,32 @@
-import { Routes, Route } from "react-router-dom";
-import Dashboards from "./Dashboard"
-import MyCourseDetail from "./MyCourse"
-import Messages from "./Messages"
-import Account from "./Account"
-import Withdrawals from "./withdraw/WIthdrawalAmount"
-import Sidebar from "./sidebar"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MyCourseDetail from "../My courses/mycourses";
+import Account from "../Account/Account";
+import Withdrawals from "../TutorDashboard/withdraw/Withdraw";
+import Sidebar from "./sidebar";
 
-
-const index = () => {
+const Index = () => {
   return (
-    <div>
-         <section className="flex flex-row max-w-screen-xl gap-8 mx-auto my-4 max-lg:flex-col">
-      {/* Sidebar */}
-      <div className="w-full lg:w-1/5">
-        <Sidebar />
-      </div>
+    <Router>
+      <div>
+        <section className="flex">
+          {/* Sidebar */}
+          <div className="w-full lg:w-1/5">
+            <Sidebar />
+          </div>
 
-      {/* Main Content */}
-      <div className="w-full px-4 lg:px-0 lg:w-4/5">
-        <Routes>
-          <Route path="/dashboard" element={<Dashboards />} />
-          <Route path="/my-course" element={<MyCourseDetail />} />
-          <Route path="/messages" element={<Messages />} />
-          <Route path="/account" element={<Account/>} />
-          <Route path="/withdrawal" element={<Withdrawals />} />
-          {/* Add a fallback route */}
-          <Route path="*" element={<Dashboards />} />
-        </Routes>
+          {/* Main Content */}
+          <div className="w-full px-4 lg:px-0 lg:w-4/5">
+            <Routes>
+              {/* Define routes for each component */}
+              <Route path="/my-courses" element={<MyCourseDetail />} />
+              <Route path="/account" element={<Account />} />
+              <Route path="/withdrawals" element={<Withdrawals />} />
+            </Routes>
+          </div>
+        </section>
       </div>
-    </section>
-    </div>
-  )
-}
+    </Router>
+  );
+};
 
-export default index
+export default Index;

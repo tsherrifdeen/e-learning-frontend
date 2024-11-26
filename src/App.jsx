@@ -24,7 +24,8 @@ import MarketingDesc from "./pages/courses/marketing/MarketingDesc";
 import BusinessDesc from "./pages/courses/business/BusinessDesc";
 import Tutor from "./pages/tutor/Tutor";
 import Tutorsignup from './components/tutor/onboarding/Signup'
-import TutorDashboard from './components/tutor/TutorDashboard/index'
+import Layout from './components/tutor/TutorDashboard/index'
+// import Dashboard from "./components/tutor/TutorDashboard/Dashboard";
 import Withdraw from "./components/tutor/TutorDashboard/withdraw/Withdraw"
 import WithdrawAmount from "./components/tutor/TutorDashboard/withdraw/WIthdrawalAmount"
 import WithdrawCode from "./components/tutor/TutorDashboard/withdraw/VerifyCode"
@@ -92,13 +93,21 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
 
 
+        <Route path="/Dashboard" element={<Layout />}>
+              {/* Child routes rendered within Layout */}
+              {/* <Route index element={<Dashboard />} /> */}
+              <Route path="mycourse" element={<MyCourses />} />
+              {/* <Route path="messages" element={<Messages />} /> */}
+              <Route path="account" element={<TutorAccount />} />
+              <Route path="withdrawal" element={<Withdraw />} />
+        </Route>
+
+
+
+
         <Route path="tutorsign" element={<Tutorsignup />} />
-        <Route path="tutordashboard" element={<TutorDashboard />} />
-        <Route path="withdraws" element={<Withdraw />} />
         <Route path="withdrawamount" element={<WithdrawAmount />} />
         <Route path="withdrawcode" element={<WithdrawCode />} />
-        <Route path="tutoraccount" element={<TutorAccount/>} />
-        <Route path="mycourses" element={<MyCourses/>} />
         <Route path="courseview" element={<CourseView/>} />
         <Route path="advanced" element={<AdvancedInfo/>} />
         <Route path="curriculum" element={<CourseCurriculum/>} />
