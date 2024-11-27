@@ -15,11 +15,11 @@ const index = () => {
 
         {/* Main Content */}
         <div className="w-full px-4 lg:px-0 lg:w-4/5">
-          <Routes>
-            {/* Define routes for each component */}
-            <Route path="/my-courses" element={<MyCourseDetail />} />
-            <Route path="/account" element={<Account />} />
-            <Route path="/withdrawals" element={<Withdrawals />} />
+        <Routes>
+            {/* Adjust paths with the base route */}
+            <Route path="my-courses" element={<MyCourseDetail />} />
+            <Route path="account" element={<Account />} />
+            <Route path="withdrawals" element={<Withdrawals />} />
           </Routes>
         </div>
       </section>

@@ -91,13 +91,13 @@ const App = () => {
         {/* Not found route */}
         <Route path="*" element={<NotFound />} />
 
-        <Route path="/tutor-dash" element={<Layout />}>
+        <Route path="/tutor-dash/*" element={<Layout />}>
           {/* Child routes rendered within Layout */}
           <Route index element={<Dashboard />} />
-          <Route path="mycourse" element={<MyCourses />} />
+          <Route path="my-courses" element={<MyCourses />} />
           {/* <Route path="messages" element={<Messages />} /> */}
           <Route path="account" element={<TutorAccount />} />
-          <Route path="withdrawal" element={<Withdraw />} />
+          <Route path="withdrawals" element={<Withdraw />} />
         </Route>
 
         <Route path="tutorsign" element={<Tutorsignup />} />
