@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div className="fixed w-64 h-screen px-5 bg-gray-100 border-r">
+    <div className="fixed w-64 h-screen px-5  border-r">
       {/* Header */}
       <div className="p-6">
         <h1 className="text-lg font-bold">Sigvarsity</h1>

@@ -1,13 +1,16 @@
+import Header from "../common/Header";
 
 
 const AccountSettings = () => {
   return (
-    <div className="bg-gray-50 min-h-screen px-4 sm:px-8 py-8">
-      <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
+    <div >
+      <Header/>
+      <div className="  px-4 sm:px-8 py-8">
+      <div className=" bg-white  rounded-lg p-6">
         {/* Account Settings */}
         <section>
           <h2 className="text-xl font-semibold mb-4">Account Settings</h2>
-          <div className="flex flex-wrap gap-6">
+          <div className="flex flex-wrap gap-10">
             {/* Profile Photo */}
             <div className="flex flex-col items-center w-full md:w-1/3">
               <div className="relative w-40 h-40">
@@ -127,6 +130,7 @@ const AccountSettings = () => {
             Save Changes
           </button>
         </section>
+      </div>
       </div>
     </div>
   );
