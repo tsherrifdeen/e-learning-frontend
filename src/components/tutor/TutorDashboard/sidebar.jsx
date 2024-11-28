@@ -2,40 +2,40 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div className="h-screen w-64 bg-gray-100 border-r px-5 fixed">
+    <div className="fixed w-64 h-screen px-5 bg-gray-100 border-r">
       {/* Header */}
       <div className="p-6">
         <h1 className="text-lg font-bold">Sigvarsity</h1>
       </div>
 
       {/* Navigation Links */}
-      <nav className="space-y-4 pl-6">
+      <nav className="pl-6 space-y-4">
         <Link
-          to="/Dashboard"
+          to="/tutor-dash/dashboard"
           className="block py-2 text-gray-700 hover:text-blue-600"
         >
           Dashboard
         </Link>
         <Link
-          to="/mycourse"
+          to="/tutor-dash/my-courses"
           className="block py-2 text-gray-700 hover:text-blue-600"
         >
           My Course
         </Link>
         <Link
-          to="/messages"
+          to="/tutor-dash/messages"
           className="block py-2 text-gray-700 hover:text-blue-600"
         >
           Messages
         </Link>
         <Link
-          to="/account"
+          to="/tutor-dash/account"
           className="block py-2 text-gray-700 hover:text-blue-600"
         >
           Account
         </Link>
         <Link
-          to="/withdrawal"
+          to="/tutor-dash/withdrawals"
           className="block py-2 text-gray-700 hover:text-blue-600"
         >
           Withdrawal
