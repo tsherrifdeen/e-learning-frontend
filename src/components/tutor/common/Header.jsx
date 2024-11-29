@@ -6,8 +6,8 @@ const Header = () => {
     <div className="flex justify-end  gap-8 items-center p-4">
       {/* Left Section with Notification Icon */}
       <div className="flex items-center">
-        <span className="text-xl text-red-500">
-          <Icon icon="bx:bell" />
+        <span className="text-3xl text-black">
+          <Icon icon="bx:bell"  />
         </span>
       </div>
 
