@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import MyCourseDetail from "../My courses/mycourses";
+import Messages from "../messages/messages";
 import Account from "../Account/Account";
 import Withdrawals from "../TutorDashboard/withdraw/Withdraw";
 import Sidebar from "./sidebar";
@@ -18,6 +19,7 @@ const Index = () => {
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/my-courses" element={<MyCourseDetail />} />
+          <Route path="/messages" element={<Messages />} />
           <Route path="/account" element={<Account />} />
           <Route path="/withdrawals" element={<Withdrawals />} />
         </Routes>
