@@ -105,7 +105,7 @@ const Messages = () => {
 
       {/* Chat area */}
       <div className="flex-1 flex flex-col items-center justify-center bg-white">
-        <div className="flex flex-col items-center justify-center border-4 border-blue-500 p-8 rounded-lg w-3/4 max-w-md h-[600px]">
+        <div className="flex flex-col items-center justify-center border border-black p-8 rounded-lg w-3/4 max-w-md h-[600px]">
           <div className="flex flex-col items-center justify-center h-full">
             <Icon icon="ion:chatbubble-outline" className="text-6xl text-blue-500 mb-4" />
             <div className="text-center">
