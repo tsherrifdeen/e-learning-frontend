@@ -25,6 +25,7 @@ import BusinessDesc from "./pages/courses/business/BusinessDesc";
 import Tutor from "./pages/tutor/Tutor";
 import Tutorsignup from "./components/tutor/onboarding/Signup";
 import Layout from "./components/tutor/TutorDashboard/index";
+import Adminlayout from './components/Admin/index'
 // import Dashboard from "./components/tutor/TutorDashboard";
 // import Withdraw from "./components/tutor/TutorDashboard/withdraw/Withdraw";
 import WithdrawAmount from "./components/tutor/TutorDashboard/withdraw/WIthdrawalAmount";
@@ -92,6 +93,7 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
 
         <Route path="/tutor-dash/*" element={<Layout />} />
+        <Route path="/admin-dash/*" element={<Adminlayout />} />
 
         <Route path="tutorsign" element={<Tutorsignup />} />
         <Route path="withdrawamount" element={<WithdrawAmount />} />
