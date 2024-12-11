@@ -4,7 +4,7 @@ import MyCourseDetail from "./Courses/Courses";
 import Account from "./Account/Account";
 import Earnings from "./Earnings/Earnin";
 import Sidebar from "./Sidevar";
-import Dashboard from "./Dashboard/Login";
+import Dashboard from "./Dashboard/Dashboard";
 
 const Index = () => {
   return (
