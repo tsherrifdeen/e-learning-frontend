@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import MyCourseDetail from "./Courses/Courses";
+import MyCourseDetail from "./Courses/CoursesOverview2";
 
 import Account from "./Account/Account";
 import Earnings from "./Earnings/Earnin";
