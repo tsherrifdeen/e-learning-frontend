@@ -1,4 +1,19 @@
-<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+import  { useState } from "react";
+
+const CourseOverview = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpand = () => {
+    setIsExpanded((prev) => !prev);
+  };
+
+  return (
+    <div className="p-6 md:p-12 bg-gray-50">
+      {/* Course Overview Header */}
+      <h1 className="text-2xl font-bold mb-6">Course Overview</h1>
+
+      {/* Requirements and Tags Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
   {/* Requirements Section */}
   <div className="bg-white p-6 rounded-lg shadow">
     <h2 className="text-lg font-semibold mb-4">Requirements</h2>
@@ -33,3 +48,57 @@
     </div>
   </div>
 </div>
+
+
+      {/* Combined Course Description and Additional Section */}
+      <div className="bg-white p-6 rounded-lg shadow mb-8">
+        <h2 className="text-xl font-semibold mb-4">Course Details</h2>
+        <p className="text-gray-700 leading-relaxed">
+          The Photoshop Master Course: From Beginner to Expert is a comprehensive learning experience designed to take you from a novice to a proficient user of Adobe Photoshop. Whether you are an aspiring graphic designer, a photographer looking to enhance your images, or simply someone interested in learning the ins and outs of this powerful software, this course is perfect for you.
+        </p>
+        {isExpanded && (
+          <>
+            <p className="text-gray-700 leading-relaxed mt-4">
+              Throughout this course, you will be guided through the fundamentals of Photoshop, gradually building your skills and knowledge to achieve expert-level proficiency. The course is structured to provide a step-by-step learning approach, ensuring that you grasp each concept before moving on to the next.
+            </p>
+            <h2 className="text-xl font-semibold mt-6 mb-4">
+              Why Take the Photoshop Master Course: From Beginner to Expert?
+            </h2>
+            <ul className="list-disc pl-6 text-gray-700">
+              <li>
+                Comprehensive curriculum covering basics to advanced techniques.
+              </li>
+              <li>Suitable for all skill levels.</li>
+            </ul>
+          </>
+        )}
+        <div
+          className="text-blue-600 mt-4 cursor-pointer flex items-center space-x-1"
+          onClick={toggleExpand}
+        >
+          <span>{isExpanded ? "Show Less" : "Show More"}</span>
+          <span>{isExpanded ? "▲" : "▼"}</span>
+        </div>
+      </div>
+
+      {/* Next Button */}
+      <div className="flex justify-end">
+        <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 flex items-center justify-center space-x-2 w-40">
+          <span>Next</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="w-5 h-5"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default CourseOverview;
