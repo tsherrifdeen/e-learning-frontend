@@ -1,4 +1,5 @@
 import  { useState } from "react";
+import { Icon } from "@iconify/react";
 import Header from "../Header"
 const CourseOverview = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -74,13 +75,16 @@ const CourseOverview = () => {
             </ul>
           </>
         )}
-        <div
-          className="text-blue-600 mt-4 cursor-pointer flex items-center space-x-1 text-blue underline"
-          onClick={toggleExpand}
-        >
-          <span>{isExpanded ? "Show Less" : "Show More"}</span>
-          <span>{isExpanded ? "▲" : "▼"}</span>
-        </div>
+       <div
+  className="text-blue-600 mt-4 cursor-pointer flex items-center space-x-1 text-blue "
+  onClick={toggleExpand}
+>
+  <span>{isExpanded ? "Show Less" : "Show More"}</span>
+  <Icon
+    icon={isExpanded ? "mdi:chevron-up" : "mdi:chevron-down"}
+    className="w-4 h-4"
+  />
+</div>
       </div>
   
 
