@@ -1,4 +1,4 @@
-const NoResults = () => {
+const EmptySearch = () => {
     return (
       <div className="flex flex-col items-center justify-center h-screen">
         {/* Icon */}
@@ -30,5 +30,5 @@ const NoResults = () => {
     );
   };
   
-  export default NoResults;
+  export default EmptySearch;
   

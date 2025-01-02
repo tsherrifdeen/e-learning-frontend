@@ -36,6 +36,9 @@ import CourseView from "./components/tutor/My courses/CourseView";
 import AdvancedInfo from "./components/tutor/My courses/AdvancedInfo";
 import CourseCurriculum from "./components/tutor/My courses/CourseCurriculum";
 import SearchPage from "./components/Search/SearchPage"
+import EmptySearch from "./components/Search/EmptySearch"
+import PaymentReceipt from "./pages/Receipt/Receipt"
+
 
 // function ScrollToTopOnRouteChange() {
 //   const { pathname } = useLocation();
@@ -103,6 +106,8 @@ const App = () => {
         <Route path="advanced" element={<AdvancedInfo />} />
         <Route path="curriculum" element={<CourseCurriculum />} />
         <Route path="search" element={<SearchPage />} />
+        <Route path="emptysearch" element={<EmptySearch/>} />
+        <Route path="receipt" element={<PaymentReceipt/>} />
 
       </Routes>
     </Router>
