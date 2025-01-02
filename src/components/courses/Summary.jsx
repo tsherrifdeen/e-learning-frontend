@@ -64,6 +64,24 @@ const data = {
     },
   ],
 };
+
+const requirements = [
+  "Passion for design",
+  "Patience and practice",
+  "Creativity mindset",
+  "Computer with compatible operating system",
+  "Creativity mindset",
+];
+
+const tags = [
+  "Graphic Designers",
+  "Digital Artists",
+  "Web Designer",
+  "UI/UX Designers",
+  "Photographers",
+  "Photographers",
+];
+
 const Summary = ({ item }) => {
   return (
     <aside className="flex flex-col gap-10 ">
@@ -122,11 +140,32 @@ const Summary = ({ item }) => {
               </div>
             ))}
           </div>
-          <div className="flex flex-col ">
-            <h2 className="px-8 text-xl font-bold text-darkslateblue">
-              Requirements
-            </h2>
-          </div>
+          <div className="flex flex-col px-8 space-y-8">
+                {/* Requirements Section */}
+                <div>
+                  <h2 className="text-xl font-bold text-darkslateblue">Requirements</h2>
+                  <ul className="list-disc pl-6 mt-4 space-y-2 text-gray-700">
+                    {requirements.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                   {/* Tags Section */}
+                      <div>
+                        <h2 className="text-xl font-bold text-darkslateblue">Tags</h2>
+                        <div className="flex flex-wrap gap-4 mt-4">
+                          {tags.map((tag, index) => (
+                            <span
+                              key={index}
+                              className="px-4 py-2 bg-gray-100 border rounded-full text-sm text-gray-600 border-gray-300"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+    </div>
         </div>
       </div>
     </aside>

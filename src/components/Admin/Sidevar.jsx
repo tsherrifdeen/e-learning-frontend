@@ -55,7 +55,7 @@ const Sidebar = () => {
         {/* Navigation Links */}
         <nav className="pl-6 space-y-4">
           <NavLink
-            to="/tutor-dash/dashboard"
+            to="/admin-dash/dashboard"
             onClick={() => handleLinkClick("/tutor-dash/dashboard")}
             className={({ isActive }) =>
               `flex items-center py-2 text-gray-700 font-medium ${
@@ -67,7 +67,7 @@ const Sidebar = () => {
             Dashboard
           </NavLink>
           <NavLink
-            to="/tutor-dash/my-courses"
+            to="/admin-dash/my-courses"
             onClick={() => handleLinkClick("/tutor-dash/my-courses")}
             className={({ isActive }) =>
               `flex items-center py-2 text-gray-700 font-medium ${
@@ -78,20 +78,9 @@ const Sidebar = () => {
             <Icon icon="carbon:play-outline" className="mr-3" />
             My Course
           </NavLink>
+          
           <NavLink
-            to="/tutor-dash/messages"
-            onClick={() => handleLinkClick("/tutor-dash/messages")}
-            className={({ isActive }) =>
-              `flex items-center py-2 text-gray-700 font-medium ${
-                isActive ? "bg-midnightBlue text-white font-bold" : ""
-              } rounded-md p-3`
-            }
-          >
-            <Icon icon="mage:message-round" className="mr-3" />
-            Messages
-          </NavLink>
-          <NavLink
-            to="/tutor-dash/account"
+            to="/admin-dash/account"
             onClick={() => handleLinkClick("/tutor-dash/account")}
             className={({ isActive }) =>
               `flex items-center py-2 text-gray-700 font-medium ${
@@ -103,7 +92,7 @@ const Sidebar = () => {
             Account
           </NavLink>
           <NavLink
-            to="/tutor-dash/withdrawals"
+            to="/admin-dash/earnings"
             onClick={() => handleLinkClick("/tutor-dash/withdrawals")}
             className={({ isActive }) =>
               `flex items-center py-2 text-gray-700 font-medium ${
@@ -112,7 +101,7 @@ const Sidebar = () => {
             }
           >
             <Icon icon="ri:wallet-line" className="mr-3" />
-            Withdrawal
+            Earnings
           </NavLink>
         </nav>
       </div>

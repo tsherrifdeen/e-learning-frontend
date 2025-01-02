@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import MyCourseDetail from "../My courses/mycourses";
-import Messages from "../messages/messages";
-import Account from "../Account/Account";
-import Withdrawals from "../TutorDashboard/withdraw/Withdraw";
-import Sidebar from "./sidebar";
-import Dashboard from "../Dahboard/index";
+import MyCourseDetail from "./Courses/CourseOverview3";
+
+import Account from "./Account/Account";
+import Earnings from "./Earnings/Earnin";
+import Sidebar from "./Sidevar";
+import Dashboard from "./Dashboard/Dashboard";
 
 const Index = () => {
   return (
@@ -19,9 +19,9 @@ const Index = () => {
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/my-courses" element={<MyCourseDetail />} />
-          <Route path="/messages" element={<Messages />} />
+          
           <Route path="/account" element={<Account />} />
-          <Route path="/withdrawals" element={<Withdrawals />} />
+          <Route path="/withdrawals" element={<Earnings />} />
         </Routes>
       </div>
     </div>

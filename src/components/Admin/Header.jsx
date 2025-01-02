@@ -3,7 +3,8 @@ import { Icon } from '@iconify/react'; // If you're using Iconify for the notifi
 
 const Header = () => {
   return (
-    <div className="flex justify-end  gap-8 items-center p-4">
+    <div>
+        <div className="flex justify-end  gap-8 items-center p-4 ">
       {/* Left Section with Notification Icon */}
       <div className="flex items-center">
         <span className="text-3xl text-black">
@@ -21,6 +22,7 @@ const Header = () => {
           />
         </div>
       </div>
+    </div>
     </div>
   );
 };

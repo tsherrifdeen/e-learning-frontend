@@ -25,15 +25,17 @@ import BusinessDesc from "./pages/courses/business/BusinessDesc";
 import Tutor from "./pages/tutor/Tutor";
 import Tutorsignup from "./components/tutor/onboarding/Signup";
 import Layout from "./components/tutor/TutorDashboard/index";
-import Dashboard from "./components/tutor/TutorDashboard";
-import Withdraw from "./components/tutor/TutorDashboard/withdraw/Withdraw";
+import Adminlayout from './components/Admin/index'
+// import Dashboard from "./components/tutor/TutorDashboard";
+// import Withdraw from "./components/tutor/TutorDashboard/withdraw/Withdraw";
 import WithdrawAmount from "./components/tutor/TutorDashboard/withdraw/WIthdrawalAmount";
 import WithdrawCode from "./components/tutor/TutorDashboard/withdraw/VerifyCode";
-import TutorAccount from "./components/tutor/Account/Account";
-import MyCourses from "./components/tutor/My courses/mycourses";
+// import TutorAccount from "./components/tutor/Account/Account";
+// import MyCourses from "./components/tutor/My courses/mycourses";
 import CourseView from "./components/tutor/My courses/CourseView";
 import AdvancedInfo from "./components/tutor/My courses/AdvancedInfo";
 import CourseCurriculum from "./components/tutor/My courses/CourseCurriculum";
+import SearchPage from "./components/Search/SearchPage"
 
 // function ScrollToTopOnRouteChange() {
 //   const { pathname } = useLocation();
@@ -91,14 +93,8 @@ const App = () => {
         {/* Not found route */}
         <Route path="*" element={<NotFound />} />
 
-        <Route path="/tutor-dash" element={<Layout />}>
-          {/* Child routes rendered within Layout */}
-          <Route index element={<Dashboard />} />
-          <Route path="mycourse" element={<MyCourses />} />
-          {/* <Route path="messages" element={<Messages />} /> */}
-          <Route path="account" element={<TutorAccount />} />
-          <Route path="withdrawal" element={<Withdraw />} />
-        </Route>
+        <Route path="/tutor-dash/*" element={<Layout />} />
+        <Route path="/admin-dash/*" element={<Adminlayout />} />
 
         <Route path="tutorsign" element={<Tutorsignup />} />
         <Route path="withdrawamount" element={<WithdrawAmount />} />
@@ -106,6 +102,8 @@ const App = () => {
         <Route path="courseview" element={<CourseView />} />
         <Route path="advanced" element={<AdvancedInfo />} />
         <Route path="curriculum" element={<CourseCurriculum />} />
+        <Route path="search" element={<SearchPage />} />
+
       </Routes>
     </Router>
   );
