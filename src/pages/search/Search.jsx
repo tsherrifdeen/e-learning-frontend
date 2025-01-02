@@ -118,7 +118,7 @@ const CoursesPage = ({ courses = [] }) => {
       </div>
 
       {/* Pagination */}
-      <div className="mt-8 flex justify-center items-center gap-4">
+      <div className="mt-8 flex justify-center items-center gap-4 m-5">
         <button className="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg">
           &lt;
         </button>
