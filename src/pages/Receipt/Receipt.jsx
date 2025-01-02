@@ -1,4 +1,4 @@
-
+import ReceiptImage from "./receipt.png"
 
 const PaymentConfirmation = () => {
   return (
@@ -7,9 +7,8 @@ const PaymentConfirmation = () => {
         <div className="flex flex-col items-center text-center">
           {/* Image */}
           <img
-            src="https://via.placeholder.com/300x200"
-            alt="Confirmation Illustration"
-            className="mb-6 w-full max-w-xs"
+            src={ReceiptImage}
+            className="mb-6 w-full max-w-xl"
           />
 
           {/* Heading */}
