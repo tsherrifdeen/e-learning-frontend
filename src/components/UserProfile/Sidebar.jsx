@@ -22,7 +22,15 @@ const Sidebar = () => {
     navigate(path); // Navigate to the desired path
   };
 
+  const handleLogout = () => {
+    // Add your logout logic here
+    console.log("User logged out");
+    navigate("/login"); // Redirect to login page after logout
+  };
+
   return (
+    <div>
+    
     <div className="relative">
       {/* Hamburger Button (Visible only on mobile) */}
       <div className={`lg:hidden fixed top-5 left-5 z-50 ${isOpen ? "hidden" : ""}`}>
@@ -50,11 +58,6 @@ const Sidebar = () => {
           </button>
         </div>
 
-        
-        {/* <div className="p-5 border-b">
-          <h1 className="text-xl font-bold text-gray-700">Dashboard</h1>
-        </div> */}
-
         {/* Navigation Links */}
         <nav className="p-6 space-y-4">
           <SidebarLink
@@ -76,7 +79,19 @@ const Sidebar = () => {
             onClick={handleLinkClick}
           />
         </nav>
+
+        {/* Logout Button */}
+        <div className="absolute bottom-5 left-32 w-full px-6 ">
+          <button
+            onClick={handleLogout}
+            className="flex items-center w-full py-2 px-3 text-gray hover:bg-gray-100 rounded-md font-medium focus:outline-none text-md"
+          >
+            <Icon icon="line-md:logout" className="mr-3 " />
+            Logout
+          </button>
+        </div>
       </div>
+    </div>
     </div>
   );
 };
