@@ -5,7 +5,7 @@ import Notifications from "./Notifications/Notification"
 import Sidebar  from "./Sidebar";
 const Index = () => {
   return (
-    <div className="h-screen flex flex-col lg:flex-row">
+    <div className="h-screen flex flex-col lg:flex-row ">
       {/* Sidebar */}
       <div className="lg:w-1/5 w-full">
         <Sidebar />

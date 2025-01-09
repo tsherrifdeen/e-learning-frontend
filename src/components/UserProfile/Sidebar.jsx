@@ -49,7 +49,7 @@ const Sidebar = () => {
 
         
         {/* Navigation Links */}
-        <nav className="pl-6 space-y-4">
+        <nav className="pl-6 space-y-4 m-10">
           <NavLink
             to="/user/profile"
             onClick={() => handleLinkClick("/user/profile")}
