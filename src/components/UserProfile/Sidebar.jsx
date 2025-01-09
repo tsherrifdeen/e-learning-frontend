@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+
+
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
@@ -20,12 +23,12 @@ const Sidebar = () => {
   };
 
   return (
-    <div>
-      {/* Hamburger Button for mobile (only shown when sidebar is closed) */}
-      <div className={`lg:hidden fixed top-5 left-5 z-50 ${isOpen ? 'hidden' : ''}`}>
+    <div className="relative">
+      {/* Hamburger Button (Visible only on mobile) */}
+      <div className={`lg:hidden fixed top-5 left-5 z-50 ${isOpen ? "hidden" : ""}`}>
         <button
           onClick={toggleSidebar}
-          className="text-2xl p-2 text-black rounded-md"
+          className="text-2xl p-2 text-gray-700 hover:text-gray-900 rounded-md focus:outline-none"
         >
           <Icon icon="charm:menu-hamburger" />
         </button>
@@ -33,64 +36,69 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-screen bg-white border-r transition-transform duration-300 ease-in-out transform ${
+        className={`fixed top-0 left-0 h-screen bg-white shadow-md border-r transition-transform duration-300 ease-in-out transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } lg:translate-x-0 lg:block w-64 px-5 z-40`}
+        } lg:translate-x-0 lg:block w-64 z-40`}
       >
-        {/* Sidebar Close (Cancel) Icon */}
-        <div className="absolute top-5 right-5 lg:hidden z-50">
+        {/* Close Button (Visible only on mobile) */}
+        <div className="absolute top-5 right-5 lg:hidden">
           <button
             onClick={closeSidebar}
-            className="text-2xl p-2 text-black rounded-md"
+            className="text-2xl p-2 text-gray-700 hover:text-gray-900 rounded-md focus:outline-none"
           >
             <Icon icon="charm:cross" />
           </button>
         </div>
 
         
+        {/* <div className="p-5 border-b">
+          <h1 className="text-xl font-bold text-gray-700">Dashboard</h1>
+        </div> */}
+
         {/* Navigation Links */}
-        <nav className="pl-6 space-y-4 m-10">
-          <NavLink
+        <nav className="p-6 space-y-4">
+          <SidebarLink
             to="/user/profile"
-            onClick={() => handleLinkClick("/user/profile")}
-            className={({ isActive }) =>
-              `flex items-center py-2 text-gray-700 font-medium ${
-                isActive ? "bg-midnightBlue text-white font-bold" : ""
-              } rounded-md p-3`
-            }
-          >
-            <Icon icon="line-md:home" className="mr-3" />
-            Profile
-          </NavLink>
-          <NavLink
+            icon="line-md:home"
+            label="Profile"
+            onClick={handleLinkClick}
+          />
+          <SidebarLink
             to="/user/tutor"
-            onClick={() => handleLinkClick("/user/tutor")}
-            className={({ isActive }) =>
-              `flex items-center py-2 text-gray-700 font-medium ${
-                isActive ? "bg-midnightBlue text-white font-bold" : ""
-              } rounded-md p-3`
-            }
-          >
-            <Icon icon="carbon:play-outline" className="mr-3" />
-            Tutor
-          </NavLink>
-          
-          <NavLink
+            icon="carbon:play-outline"
+            label="Tutor"
+            onClick={handleLinkClick}
+          />
+          <SidebarLink
             to="/user/notifications"
-            onClick={() => handleLinkClick("/user/notifications")}
-            className={({ isActive }) =>
-              `flex items-center py-2 text-gray-700 font-medium ${
-                isActive ? "bg-midnightBlue text-white font-bold" : ""
-              } rounded-md p-3`
-            }
-          >
-            <Icon icon="line-md:account" className="mr-3" />
-            Notifications
-          </NavLink>
-          
+            icon="line-md:account"
+            label="Notifications"
+            onClick={handleLinkClick}
+          />
         </nav>
       </div>
     </div>
+  );
+};
+
+/**
+ * SidebarLink Component
+ * Reusable component for individual sidebar links
+ */
+const SidebarLink = ({ to, icon, label, onClick }) => {
+  return (
+    <NavLink
+      to={to}
+      onClick={() => onClick(to)}
+      className={({ isActive }) =>
+        `flex items-center py-2 px-3 text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-md font-medium ${
+          isActive ? "bg-midnightBlue text-white font-bold" : ""
+        }`
+      }
+    >
+      <Icon icon={icon} className="mr-3 text-lg" />
+      {label}
+    </NavLink>
   );
 };
 
