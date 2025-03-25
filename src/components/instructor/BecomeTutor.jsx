@@ -15,11 +15,13 @@ const BecomeTutor = () => {
               worldwide. Together, let's create an engaging and transformative
               learning experience.
             </p>
-            <Button
-              value="
+            <div className="max-w-xs">
+              <Button
+                value="
               Start Your Teaching Journey Now"
-              url="/tutor"
-            ></Button>
+                url="/tutor"
+              ></Button>
+            </div>
           </div>
         </div>
         <div className="flex flex-col w-6/12 ml-5 max-md:ml-0 max-md:w-full">

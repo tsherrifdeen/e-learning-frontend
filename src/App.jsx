@@ -25,8 +25,8 @@ import BusinessDesc from "./pages/courses/business/BusinessDesc";
 import Tutor from "./pages/tutor/Tutor";
 import Tutorsignup from "./components/tutor/onboarding/Signup";
 import Layout from "./components/tutor/TutorDashboard/index";
-import Adminlayout from './components/Admin/index'
-import UserProfilelayout from './components/UserProfile/index'
+import Adminlayout from "./components/Admin/index";
+import UserProfilelayout from "./components/UserProfile/index";
 // import Dashboard from "./components/tutor/TutorDashboard";
 // import Withdraw from "./components/tutor/TutorDashboard/withdraw/Withdraw";
 import WithdrawAmount from "./components/tutor/TutorDashboard/withdraw/WIthdrawalAmount";
@@ -36,10 +36,9 @@ import WithdrawCode from "./components/tutor/TutorDashboard/withdraw/VerifyCode"
 import CourseView from "./components/tutor/My courses/CourseView";
 import AdvancedInfo from "./components/tutor/My courses/AdvancedInfo";
 import CourseCurriculum from "./components/tutor/My courses/CourseCurriculum";
-import SearchPage from "./components/Search/SearchPage"
-import EmptySearch from "./components/Search/EmptySearch"
-import PaymentReceipt from "./pages/Receipt/Receipt"
-
+import SearchPage from "./components/Search/SearchPage";
+import EmptySearch from "./components/Search/EmptySearch";
+import PaymentReceipt from "./pages/Receipt/Receipt";
 
 // function ScrollToTopOnRouteChange() {
 //   const { pathname } = useLocation();
@@ -101,17 +100,15 @@ const App = () => {
         <Route path="/admin-dash/*" element={<Adminlayout />} />
         <Route path="/user/*" element={<UserProfilelayout />} />
 
-
-        <Route path="tutorsign" element={<Tutorsignup />} />
-        <Route path="withdrawamount" element={<WithdrawAmount />} />
+        <Route path="/tutorsign" element={<Tutorsignup />} />
+        <Route path="/withdrawamount" element={<WithdrawAmount />} />
         <Route path="withdrawcode" element={<WithdrawCode />} />
         <Route path="courseview" element={<CourseView />} />
         <Route path="advanced" element={<AdvancedInfo />} />
         <Route path="curriculum" element={<CourseCurriculum />} />
         <Route path="search" element={<SearchPage />} />
-        <Route path="emptysearch" element={<EmptySearch/>} />
-        <Route path="receipt" element={<PaymentReceipt/>} />
-
+        <Route path="emptysearch" element={<EmptySearch />} />
+        <Route path="receipt" element={<PaymentReceipt />} />
       </Routes>
     </Router>
   );
