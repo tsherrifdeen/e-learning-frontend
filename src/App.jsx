@@ -22,9 +22,8 @@ import DevelopmentDesc from "./pages/courses/development/DevelopmentDesc";
 import DesignDesc from "./pages/courses/design/DesignDesc";
 import MarketingDesc from "./pages/courses/marketing/MarketingDesc";
 import BusinessDesc from "./pages/courses/business/BusinessDesc";
-import Tutor from "./pages/tutor/Tutor";
+import Tutor from "./pages/tutor/Home";
 import Tutorsignup from "./components/tutor/onboarding/Signup";
-import Layout from "./components/tutor/TutorDashboard/index";
 import Adminlayout from "./components/Admin/index";
 import UserProfilelayout from "./components/UserProfile/index";
 // import Dashboard from "./components/tutor/TutorDashboard";
@@ -33,12 +32,13 @@ import WithdrawAmount from "./components/tutor/TutorDashboard/withdraw/WIthdrawa
 import WithdrawCode from "./components/tutor/TutorDashboard/withdraw/VerifyCode";
 // import TutorAccount from "./components/tutor/Account/Account";
 // import MyCourses from "./components/tutor/My courses/mycourses";
-import CourseView from "./components/tutor/My courses/CourseView";
-import AdvancedInfo from "./components/tutor/My courses/AdvancedInfo";
-import CourseCurriculum from "./components/tutor/My courses/CourseCurriculum";
+import CourseView from "./components/tutor/courses/CourseView";
+import AdvancedInfo from "./components/tutor/courses/AdvancedInfo";
+import CourseCurriculum from "./components/tutor/courses/CourseCurriculum";
 import SearchPage from "./components/Search/SearchPage";
 import EmptySearch from "./components/Search/EmptySearch";
 import PaymentReceipt from "./pages/Receipt/Receipt";
+import TutorDashboard from "./pages/tutor/Dashboard";
 
 // function ScrollToTopOnRouteChange() {
 //   const { pathname } = useLocation();
@@ -96,11 +96,15 @@ const App = () => {
         {/* Not found route */}
         <Route path="*" element={<NotFound />} />
 
-        <Route path="/tutor-dash/*" element={<Layout />} />
+        {/* tutor */}
+
+        <Route path="/tutor">
+          <Route path="dashboard/*" element={<TutorDashboard />} />
+          <Route path="signup" element={<Tutorsignup />} />
+        </Route>
         <Route path="/admin-dash/*" element={<Adminlayout />} />
         <Route path="/user/*" element={<UserProfilelayout />} />
 
-        <Route path="/tutorsign" element={<Tutorsignup />} />
         <Route path="/withdrawamount" element={<WithdrawAmount />} />
         <Route path="withdrawcode" element={<WithdrawCode />} />
         <Route path="courseview" element={<CourseView />} />

@@ -1,5 +1,6 @@
 import Button from "../common/button/Button";
 import becomeTutor from "../../assets/becomeTutor.png";
+
 const BecomeTutor = () => {
   return (
     <div className="pl-16 bg-white max-md:pl-5">

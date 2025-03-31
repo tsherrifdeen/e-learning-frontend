@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+
 const ProgressBar = ({ step, totalSteps }) => {
   const progressPercentage = (step / totalSteps) * 100;
   return (
@@ -18,6 +20,7 @@ const ProgressBar = ({ step, totalSteps }) => {
 
 const SignupProgress = () => {
   const [step, setStep] = useState(1);
+  const [data, setData] = useState({ email: "", username: "", password: "" });
   const totalSteps = 5;
 
   const handleNextStep = () => {
@@ -25,15 +28,23 @@ const SignupProgress = () => {
       setStep(step + 1);
     }
   };
+  const handleOnInputChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+  // const handlePasswordChange = (e) => { }
   const handlePrevStep = () => {
     if (step > 1) {
       setStep(step - 1);
     }
   };
 
+  const handleCreateAccount = () => {
+    console.log(data);
+  };
   return (
     <div className="flex flex-col items-center w-full max-w-screen-lg mx-auto font-poppins">
       {/* Header */}
+      <ToastContainer />
       <header className="fixed top-0 left-0 z-10 w-full bg-white">
         <div className="flex items-center justify-between w-full max-w-6xl px-8 py-4 mx-auto">
           {/* Logo */}
@@ -110,7 +121,10 @@ const SignupProgress = () => {
                     <input
                       id="email"
                       type="email"
+                      name="email"
                       placeholder="Enter your email"
+                      value={data.email}
+                      onChange={handleOnInputChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                     />
                   </div>
@@ -124,6 +138,9 @@ const SignupProgress = () => {
                     <input
                       id="username"
                       type="text"
+                      value={data.username}
+                      name="username"
+                      onChange={handleOnInputChange}
                       placeholder="Enter your username"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                     />
@@ -139,7 +156,10 @@ const SignupProgress = () => {
                     </label>
                     <input
                       id="password"
+                      name="password"
                       type="password"
+                      onChange={handleOnInputChange}
+                      value={data.password}
                       placeholder="Enter your password"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                     />
@@ -154,6 +174,16 @@ const SignupProgress = () => {
                     <input
                       id="confirm-password"
                       type="password"
+                      onBlur={() => {
+                        if (data.password !== data["confirm-password"]) {
+                          toast.warn("Password does not match");
+                        }
+                      }}
+                      // onChange={() => {
+                      //   if (data.password !== data["confirm-password"]) {
+                      //     toast.error("Password does not match");
+                      //   }
+                      // }}
                       placeholder="Confirm your password"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                     />
@@ -256,7 +286,7 @@ const SignupProgress = () => {
         {step === 4 && (
           <div className="flex items-center justify-center ">
             <div className="w-full max-w-xl p-8 bg-white rounded-lg">
-              <h2 className="text-lg font-bold text-center">
+              <h2 className="text-lg font-bold text-center text-midnightBlue">
                 How much of a video “pro” are you?
               </h2>
               <div className="flex flex-col items-center mt-6 space-y-4">
@@ -298,7 +328,7 @@ const SignupProgress = () => {
 
         {step === 5 && (
           <div className="w-full max-w-xl p-8 mx-auto bg-white rounded-lg">
-            <h2 className="text-lg font-bold text-center">
+            <h2 className="text-lg font-bold text-center text-midnightBlue">
               Which type of video will you like to upload
             </h2>
             <div className="flex flex-col items-center mt-6 space-y-4">
@@ -306,13 +336,12 @@ const SignupProgress = () => {
                 (option, index) => (
                   <label
                     key={index}
-                    className="flex items-center justify-center w-full max-w-md px-4 py-3 transition-all border-2 border-gray-300 rounded-lg cursor-pointer hover:border-blue-500"
+                    className="flex items-center justify-center w-full max-w-md px-4 py-3 transition-all border rounded-lg cursor-pointer border-midnightBlue hover:border-blue-500"
                   >
                     <input
                       type="radio"
                       name="experience"
                       value={option}
-                      onChange={handleNextStep}
                       className="w-4 h-4 mr-3 border-2 border-gray-300 rounded-full"
                     />
                     <span className="text-lg font-semibold text-center ">
@@ -322,9 +351,12 @@ const SignupProgress = () => {
                 )
               )}
             </div>
-            <div className="flex justify-center mt-6">
-              <button className="px-4 py-2 text-white bg-green-500 rounded-lg hover:bg-green-600">
-                Finish
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={handleCreateAccount}
+                className="w-full max-w-xs py-2 text-white rounded-lg bg-blue hover:bg-blue-600"
+              >
+                Create Account
               </button>
             </div>
           </div>
