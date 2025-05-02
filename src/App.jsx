@@ -99,8 +99,8 @@ const App = () => {
         {/* tutor */}
 
         <Route path="/tutor">
-          <Route path="dashboard/*" element={<TutorDashboard />} />
-          <Route path="signup" element={<Tutorsignup />} />
+          <Route path="*" element={<TutorDashboard />} />
+          <Route index element={<Tutorsignup />} />
         </Route>
         <Route path="/admin-dash/*" element={<Adminlayout />} />
         <Route path="/user/*" element={<UserProfilelayout />} />

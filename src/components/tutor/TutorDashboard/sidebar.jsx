@@ -3,29 +3,56 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false); // State to control sidebar visibility
-  const navigate = useNavigate(); // To navigate programmatically
+  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen); // Toggle the sidebar visibility
-  };
-
-  const closeSidebar = () => {
-    setIsOpen(false); // Close the sidebar
-  };
+  const toggleSidebar = () => setIsOpen(!isOpen);
+  const closeSidebar = () => setIsOpen(false);
 
   const handleLinkClick = (path) => {
-    closeSidebar(); // Close sidebar when a link is clicked
-    navigate(path); // Navigate to the desired path
+    closeSidebar();
+    navigate(path);
   };
+
+  const navLinks = [
+    {
+      to: "/tutor/dashboard",
+      icon: "line-md:home",
+      label: "Dashboard",
+    },
+    {
+      to: "/tutor/courses",
+      icon: "carbon:play-outline",
+      label: "My Course",
+    },
+    {
+      to: "/tutor/messages",
+      icon: "mage:message-round",
+      label: "Messages",
+    },
+    {
+      to: "/tutor/account",
+      icon: "line-md:account",
+      label: "Account",
+    },
+    {
+      to: "/tutor/withdrawals",
+      icon: "ri:wallet-line",
+      label: "Withdrawal",
+    },
+  ];
 
   return (
     <div>
-      {/* Hamburger Button for mobile (only shown when sidebar is closed) */}
-      <div className={`lg:hidden fixed top-5 left-5 z-50 ${isOpen ? 'hidden' : ''}`}>
+      {/* Hamburger Button */}
+      <div
+        className={`lg:hidden fixed top-5 left-5 z-50 ${
+          isOpen ? "hidden" : ""
+        }`}
+      >
         <button
           onClick={toggleSidebar}
-          className="text-2xl p-2 text-black rounded-md"
+          className="p-2 text-2xl text-black rounded-md"
         >
           <Icon icon="charm:menu-hamburger" />
         </button>
@@ -37,11 +64,11 @@ const Sidebar = () => {
           isOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0 lg:block w-64 px-5 z-40`}
       >
-        {/* Sidebar Close (Cancel) Icon */}
-        <div className="absolute top-5 right-5 lg:hidden z-50">
+        {/* Close Icon */}
+        <div className="absolute z-50 top-5 right-5 lg:hidden">
           <button
             onClick={closeSidebar}
-            className="text-2xl p-2 text-black rounded-md"
+            className="p-2 text-2xl text-black rounded-md"
           >
             <Icon icon="charm:cross" />
           </button>
@@ -52,68 +79,23 @@ const Sidebar = () => {
           <h1 className="text-lg font-bold">Sigvarsity</h1>
         </div>
 
-        {/* Navigation Links */}
+        {/* Navigation */}
         <nav className="pl-6 space-y-4">
-          <NavLink
-            to="/tutor-dash/dashboard"
-            onClick={() => handleLinkClick("/tutor-dash/dashboard")}
-            className={({ isActive }) =>
-              `flex items-center py-2 text-gray-700 font-medium ${
-                isActive ? "bg-midnightBlue text-white font-bold" : ""
-              } rounded-md p-3`
-            }
-          >
-            <Icon icon="line-md:home" className="mr-3" />
-            Dashboard
-          </NavLink>
-          <NavLink
-            to="/tutor-dash/my-courses"
-            onClick={() => handleLinkClick("/tutor-dash/my-courses")}
-            className={({ isActive }) =>
-              `flex items-center py-2 text-gray-700 font-medium ${
-                isActive ? "bg-midnightBlue text-white font-bold" : ""
-              } rounded-md p-3`
-            }
-          >
-            <Icon icon="carbon:play-outline" className="mr-3" />
-            My Course
-          </NavLink>
-          <NavLink
-            to="/tutor-dash/messages"
-            onClick={() => handleLinkClick("/tutor-dash/messages")}
-            className={({ isActive }) =>
-              `flex items-center py-2 text-gray-700 font-medium ${
-                isActive ? "bg-midnightBlue text-white font-bold" : ""
-              } rounded-md p-3`
-            }
-          >
-            <Icon icon="mage:message-round" className="mr-3" />
-            Messages
-          </NavLink>
-          <NavLink
-            to="/tutor-dash/account"
-            onClick={() => handleLinkClick("/tutor-dash/account")}
-            className={({ isActive }) =>
-              `flex items-center py-2 text-gray-700 font-medium ${
-                isActive ? "bg-midnightBlue text-white font-bold" : ""
-              } rounded-md p-3`
-            }
-          >
-            <Icon icon="line-md:account" className="mr-3" />
-            Account
-          </NavLink>
-          <NavLink
-            to="/tutor-dash/withdrawals"
-            onClick={() => handleLinkClick("/tutor-dash/withdrawals")}
-            className={({ isActive }) =>
-              `flex items-center py-2 text-gray-700 font-medium ${
-                isActive ? "bg-midnightBlue text-white font-bold" : ""
-              } rounded-md p-3`
-            }
-          >
-            <Icon icon="ri:wallet-line" className="mr-3" />
-            Withdrawal
-          </NavLink>
+          {navLinks.map(({ to, icon, label }) => (
+            <NavLink
+              key={to}
+              to={to}
+              onClick={() => handleLinkClick(to)}
+              className={({ isActive }) =>
+                `flex items-center py-2 text-gray-700 font-medium ${
+                  isActive ? "bg-midnightBlue text-white font-bold" : ""
+                } rounded-md p-3`
+              }
+            >
+              <Icon icon={icon} className="mr-3" />
+              {label}
+            </NavLink>
+          ))}
         </nav>
       </div>
     </div>
